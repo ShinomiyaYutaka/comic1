@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>モコネーター</title>
+  </head>
+  <body>
+    <br><br><br><br><br><br><br><br><br>
+    <h1>(⌒,_ゝ⌒)<br><br></h1>
+    <p id="item">*モコネーターへようこそ！<br>　あそぶ？</p>
+    <input type="button" id="btn1" value="もどる" onclick="printM(1)">
+    <input type="button" id="btn2" value="はい" onclick="printM(2)">
+    <input type="button" id="btn3" value="いいえ" onclick="printM(3)">
+    <input type="button" id="btn4" value="リセット" onclick="printM(4)">
+
+  <br><br><br><br>
+  </body>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+
+  <style type="text/css">
+
+  html {
+    background-color: black;
+  }
+
+  body {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h1 {
+    color: #eee;
+    text-shadow: 2px 2px 2px #aaa;
+  }
+
+  #item {
+    text-align: left;
+    color: #eee;
+    border: 3px solid white;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 500px;
+    height: 110px;
+    margin:15px auto;
+    padding: 0;
+  }
+  #btn1,#btn2,#btn3,#btn4 {
+    color: orange;
+    font-size: large;
+    width: 100px;
+    border: 2px solid orange;
+    background-color: black;
+    margin:0 15px;
+  }
+
+  #btn1:hover,#btn2:hover,#btn3:hover,#btn4:hover {
+    color: yellow;
+    border: 2px solid yellow;
+  }
+
+  </style>
+
+  <script type="text/javascript">
+  let j = 0;
+  let text = "";
+  let i = 0;
+  var msgtext = ["*モコネーターへようこそ！\n　あそぶ？",
+"*YouTuberですか？",
+"*音楽に関係している？",
+"*いつも帽子をかぶっている？",
+"*人間？",
+"*ほっぺがチャームポイント？",
+"*東方に関係している？",
+"*手が短い？",
+"*ポケモンにでてくる？",
+"*　　　　　　　　　　　　\n　処理中です…　時間がかかる場合は\n　[はい]　か　[いいえ]　でスキップできます",
+"*イメージカラーは白？",
+"*神様のように崇められている？",
+"*スーパーコンピューターのなかで\n　そろばんを弾いていた？",
+"*日本列島を創った張本人？",
+"*高田健志？",
+"*高田健志？"];
+
+  async function printM(i) {
+          document.getElementById("btn1").disabled = true;
+          document.getElementById("btn2").disabled = true;
+          document.getElementById("btn3").disabled = true;
+          document.getElementById("btn4").disabled = true;
+          if(j == 0 && i == 3){
+
+          }else{
+            if(i == 1){
+              j--;
+              if(j < 0){
+                j = 0;
+              }
+            }else if(i == 4){
+              j = 0;
+            }else{
+              j++;
+            }
+          }
+          if(j == 16){
+            window.open('https://youtu.be/SW3GGXbLDv4', '_self');
+          }
+          text = msgtext[j].split("");
+          document.getElementById("item").innerText = "";
+          for(i = 0 ; i < text.length; i++){
+            document.getElementById("item").innerText += text[i];
+            await sleep(40);
+          }
+          document.getElementById("btn1").disabled = false;
+          document.getElementById("btn2").disabled = false;
+          document.getElementById("btn3").disabled = false;
+          document.getElementById("btn4").disabled = false;
+        }
+
+  //awaitを使うために必要
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  </script>
+</html>
