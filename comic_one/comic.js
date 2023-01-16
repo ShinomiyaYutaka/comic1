@@ -10,6 +10,8 @@ $(function(){
 //***パラメータ指定***
     var num = 1;
     
+    //途中から読める設定====================================================================================================================
+
     // URLのパラメータを取得（?p=n）
     var urlParam = location.search.substring(1);
     // URLにパラメータが存在する場合
@@ -24,6 +26,11 @@ $(function(){
     }
     
     num = num - 1;
+
+    //=====================================================================================================================================
+
+    num = 0;
+    
     if(width <= 768){ //768px以下のとき
     } else {//769px以上のとき
         if(display === 1){ //右ページ始まりの時
@@ -81,9 +88,11 @@ $(function(){
         }
         //スライド枚数カウント用
         $slider.on('setPosition', function(event, slick) {
+            //=====================================================================================================================================================================================
             console.log(slick.currentSlide);//現在のページ(右側)
-            if(slick.currentSlide >= 3){
-                confirmDisp();
+            if(slick.currentSlide >= 31){
+                $('.modal').css('display', 'block');
+                //window.alert('OKされました'); // 警告ダイアログを表示
             }
 
 
@@ -103,6 +112,18 @@ $(function(){
     
     $(window).resize( function() {
         sliderSetting();
+    });
+
+    $('.btnOk').click(function(){//===================================================================================================================================================================
+        $('.modal').css('display', 'none');
+        /*
+        let str = $('.slider').html();
+        str = str.replace('normal/','broken/');
+        $('.slider').html(str);
+        */
+        localStorage.setItem('comic_world', "broken");
+        location.reload();
+        //location.replace("file:///C:/Users/FitYu/OneDrive/デスクトップ/漫画/comic_one/comic/index.html?b=b");
     });
 
 
@@ -273,27 +294,6 @@ $(function(){
     }
     
 });
-
-function confirmDisp(){
-
-	// 「OK」時の処理開始 ＋ 確認ダイアログの表示
-	if(window.confirm('データの読み込みに失敗しました。\nページを再ロードします。')){
-
-		//location.href = "example_confirm.html"; // example_confirm.html へジャンプ
-        window.alert('OKされました'); // 警告ダイアログを表示
-
-	}
-	// 「OK」時の処理終了
-
-	// 「キャンセル」時の処理開始
-	else{
-
-		window.alert('キャンセルされました'); // 警告ダイアログを表示
-
-	}
-	// 「キャンセル」時の処理終了
-
-}
 
 /***slick-custom***
 https://guardian.bona.jp/st/cv/
