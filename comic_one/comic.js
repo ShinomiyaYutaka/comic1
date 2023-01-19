@@ -114,6 +114,7 @@ $(function(){
         sliderSetting();
     });
 
+    //モーダルボタン
     $('.btnOk').click(function(){//===================================================================================================================================================================
         $('.modal').css('display', 'none');
         /*
@@ -123,6 +124,14 @@ $(function(){
         */
         localStorage.setItem('comic_world', "broken");
         location.reload();
+        //location.replace("file:///C:/Users/FitYu/OneDrive/デスクトップ/漫画/comic_one/comic/index.html?b=b");
+    });
+    
+    $('.tweetBtn').click(function(){
+        localStorage.setItem('comic_world', "true");
+        let tweetUrl = "http://twitter.com/share?url=https://shinomiyayutaka.github.io/comic1/comic_one/comic/index.html&text=【無料読み切り作品】「この先通行止め」を読みました。&related=YutakaArts&hashtags=創作漫画,漫画が読めるハッシュタグ";
+        window.open(tweetUrl, '_blank')
+        //location.reload();
         //location.replace("file:///C:/Users/FitYu/OneDrive/デスクトップ/漫画/comic_one/comic/index.html?b=b");
     });
 
