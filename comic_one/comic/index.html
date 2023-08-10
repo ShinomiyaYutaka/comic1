@@ -50,7 +50,8 @@
         file += "/";
         let imgtype = "png"; //画像の拡張子
         let title = "「この先通行止め」"; //タイトル名
-        let site = "https://twitter.com/YutakaArts"; //サイトのURL
+        let site = "https://twitter.com/YutakaArts"; //TwitterのURL
+        let home = "https://shinomiyayutaka.github.io/home/"; //サイトのURL
         let copy = "しのみや　ゆたか"; //作者名
         let display = 0; //左ページ始まりは「0」、右ページ始まりは「1」
         /* *ここまで **/
@@ -58,6 +59,7 @@
         $(function () {
             $("title,h1").text(title);
             $(".o_button").attr("onClick", "location.href='" + site + "'");
+            $(".h_button").attr("onClick", "location.href='" + home + "'");
             $(".copy").text(copy);
             for (var i = 1; i <= page; i++) {
                 $('#last_page').before('<div class="c_i"><div><img data-lazy="' + file + i + '.' + imgtype + '" src="../images/load.gif"></div></div>');
@@ -113,6 +115,7 @@
                 <p>
                     <input type="button" value="もう一度読む" class="button b_button">
                     <input type="button" value="作者のTwitter" class="button o_button orange">
+                    <input type="button" value="作者のホームページ" class="button h_button orange">
                 </p>
                 <div>
                     <iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=6&l=ur1&category=music&f=ifr&linkID=17f8f7e07cf107f91ef840ed50e4bc41&t=amznitems-22&tracking_id=amznitems-22" width="120" height="150" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
@@ -140,6 +143,7 @@
                 <input type="button" value="全画面表示" class="button g_button sp_none">
                 <input type="button" value="拡大モード" class="button z_button">
                 <input type="button" value="作者のTwitter" class="button o_button orange">
+                <input type="button" value="作者のホームページ" class="button h_button orange">
             </p>
             <div class="slick-counter"><span class="current"></span> / <span class="total"></span></div>
             <!-- <div class="dots" dir="rtl"></div> スクロールバー-->
